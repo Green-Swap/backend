@@ -26,6 +26,9 @@ public class Users {
 	@Column(name = "verified", nullable = false)
 	private boolean verified;
 	
+	@Column(name = "isAdmin", nullable = false)
+	private boolean isAdmin;
+	
 	@Column(name = "password", nullable = false)
 	private String password;
 	
@@ -89,5 +92,12 @@ public class Users {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
+	public boolean isAdmin() {
+		return isAdmin;
+	}
+
+	public void setAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
+	}
 }

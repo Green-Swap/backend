@@ -5,23 +5,19 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name = "Historics")
-public class Historics {
+@Table(name = "Favorites")
+public class Favorites {
 	@Id
 	private long id;
 	
 	@ManyToOne(targetEntity=Users.class) 
 	private Users user;
 	
-	@ManyToOne(targetEntity=Users.class) 
-	private Users userBis;
-	
-	@ManyToOne(targetEntity=Swaps.class) 
-	private Swaps swap;
-	
-	public Historics() {
+	@ManyToOne(targetEntity=Plants.class) 
+	private Plants plant;
+
+	public Favorites() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -42,19 +38,11 @@ public class Historics {
 		this.user = user;
 	}
 
-	public Users getUserBis() {
-		return userBis;
+	public Plants getPlant() {
+		return plant;
 	}
 
-	public void setUserBis(Users userBis) {
-		this.userBis = userBis;
-	}
-
-	public Swaps getSwap() {
-		return swap;
-	}
-
-	public void setSwap(Swaps swap) {
-		this.swap = swap;
+	public void setPlant(Plants plant) {
+		this.plant = plant;
 	}
 }

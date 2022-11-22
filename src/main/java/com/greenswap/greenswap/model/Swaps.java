@@ -17,6 +17,9 @@ public class Swaps {
 	@Column(name = "date", nullable = false)
 	private Date date;
 	
+	@Column(name = "state", nullable = false)
+	private String state;
+	
 	@ManyToOne(targetEntity=Plants.class)
 	private Plants plant;
 	
@@ -59,5 +62,4 @@ public class Swaps {
 	public void setPlantBis(Plants plantBis) {
 		this.plantBis = plantBis;
 	}
-	
 }

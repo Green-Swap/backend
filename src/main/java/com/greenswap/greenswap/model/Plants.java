@@ -1,8 +1,12 @@
 package com.greenswap.greenswap.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -18,6 +22,9 @@ public class Plants {
 	
 	@ManyToOne(targetEntity=Users.class)
 	private Users user;
+	
+	@ManyToMany
+	private List<Categories> categories;
 
 	public Plants() {
 		super();
@@ -47,6 +54,12 @@ public class Plants {
 	public void setUser(Users user) {
 		this.user = user;
 	}
-	
 
+	public List<Categories> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(List<Categories> categories) {
+		this.categories = categories;
+	}
 }
