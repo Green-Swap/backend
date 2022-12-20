@@ -1,5 +1,8 @@
 package com.greenswap.greenswap.model;
 
+import java.sql.Date;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -7,8 +10,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Favorite")
-public class Favorite {
+@Table(name = "Connexion")
+public class Connexion {
 	@Id
 	@GeneratedValue
 	private long id;
@@ -16,10 +19,13 @@ public class Favorite {
 	@ManyToOne(targetEntity=User.class) 
 	private User user;
 	
-	@ManyToOne(targetEntity=Plant.class) 
-	private Plant plant;
+	@Column(name = "date", nullable = false)
+	private Date date;
+	
+	@Column(name = "succesfull", nullable = false)
+	private boolean succesfull;
 
-	public Favorite() {
+	public Connexion() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -40,11 +46,20 @@ public class Favorite {
 		this.user = user;
 	}
 
-	public Plant getPlant() {
-		return plant;
+	public Date getDate() {
+		return date;
 	}
 
-	public void setPlant(Plant plant) {
-		this.plant = plant;
+	public void setDate(Date date) {
+		this.date = date;
 	}
+
+	public boolean isSuccesfull() {
+		return succesfull;
+	}
+
+	public void setSuccesfull(boolean succesfull) {
+		this.succesfull = succesfull;
+	}
+	
 }

@@ -2,6 +2,7 @@ package com.greenswap.greenswap.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -10,6 +11,7 @@ import javax.persistence.Table;
 @Table(name = "Picture")
 public class Picture {
 	@Id
+	@GeneratedValue
 	private long id;
 	
 	@Column(name = "link", nullable = false)

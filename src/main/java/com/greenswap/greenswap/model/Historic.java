@@ -1,6 +1,7 @@
 package com.greenswap.greenswap.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -10,6 +11,7 @@ import javax.persistence.Table;
 @Table(name = "Historic")
 public class Historic {
 	@Id
+	@GeneratedValue
 	private long id;
 	
 	@ManyToOne(targetEntity=User.class) 
