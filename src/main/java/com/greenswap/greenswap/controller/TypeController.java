@@ -1,4 +1,4 @@
-package controller;
+package com.greenswap.greenswap.controller;
 
 import java.util.List;
 
@@ -12,11 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.greenswap.greenswap.model.Type;
-
-import repository.TypeRepository;
+import com.greenswap.greenswap.repository.TypeRepository;
 
 @RestController
-@RequestMapping("/grenswap")
+@RequestMapping("/greenswap")
 public class TypeController {
 	// Instanciation du code JPA pour récupérer les données dans la BDD
 	@Autowired
@@ -25,12 +24,14 @@ public class TypeController {
 	// Get all types
 	@GetMapping("/types")
 	public List<Type> getAllTypes() {
+		System.out.println("get");
 		return typeRepository.findAll();
 	}
 
 	// Create a type
 	@PostMapping("/type")
-	public Type createType(@Valid @RequestBody Type article) {
-		return typeRepository.save(article);
+	public Type createType(@Valid @RequestBody Type type) {
+		System.out.println("post");
+		return typeRepository.save(type);
 	}
 }

@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "0ffff6f0-6c6b-4b5c-b0ab-b09c04e984eb",
+		"name": "GREENSWAP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23914870"
+	},
+	"item": [
+		{
+			"name": "TYPE",
+			"item": [
+				{
+					"name": "GET ALL TYPE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}:{{port}}/{{base}}/types",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"{{base}}",
+								"types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE TYPE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"test\",\r\n    \"plant\":null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/{{base}}/type",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"{{base}}",
+								"type"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "port",
+			"value": "8001"
+		},
+		{
+			"key": "host",
+			"value": "localhost"
+		},
+		{
+			"key": "base",
+			"value": "greenswap"
+		}
+	]
+}

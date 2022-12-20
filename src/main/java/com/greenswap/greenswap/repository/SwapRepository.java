@@ -1,4 +1,4 @@
-package repository;
+package com.greenswap.greenswap.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
