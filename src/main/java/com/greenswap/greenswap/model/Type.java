@@ -22,7 +22,7 @@ public class Type {
 	@Column(name = "name", nullable = false)
 	private String name;
 	
-	@ManyToMany(mappedBy = "type") 
+	@ManyToMany(mappedBy = "types") 
 	private List<Plant> plant;
 
 
