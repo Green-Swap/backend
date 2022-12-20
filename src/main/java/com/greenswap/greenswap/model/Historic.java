@@ -1,27 +1,29 @@
 package com.greenswap.greenswap.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "Historics")
-public class Historics {
+@Table(name = "Historic")
+public class Historic {
 	@Id
+	@GeneratedValue
 	private long id;
 	
-	@ManyToOne(targetEntity=Users.class) 
-	private Users user;
+	@ManyToOne(targetEntity=User.class) 
+	private User user;
 	
-	@ManyToOne(targetEntity=Users.class) 
-	private Users userBis;
+	@ManyToOne(targetEntity=User.class) 
+	private User userBis;
 	
-	@ManyToOne(targetEntity=Swaps.class) 
-	private Swaps swap;
+	@ManyToOne(targetEntity=Swap.class) 
+	private Swap swap;
 	
-	public Historics() {
+	public Historic() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -34,27 +36,27 @@ public class Historics {
 		this.id = id;
 	}
 
-	public Users getUser() {
+	public User getUser() {
 		return user;
 	}
 
-	public void setUser(Users user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 
-	public Users getUserBis() {
+	public User getUserBis() {
 		return userBis;
 	}
 
-	public void setUserBis(Users userBis) {
+	public void setUserBis(User userBis) {
 		this.userBis = userBis;
 	}
 
-	public Swaps getSwap() {
+	public Swap getSwap() {
 		return swap;
 	}
 
-	public void setSwap(Swaps swap) {
+	public void setSwap(Swap swap) {
 		this.swap = swap;
 	}
 }

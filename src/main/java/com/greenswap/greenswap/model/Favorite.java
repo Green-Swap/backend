@@ -1,23 +1,25 @@
 package com.greenswap.greenswap.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Favorites")
-public class Favorites {
+@Table(name = "Favorite")
+public class Favorite {
 	@Id
+	@GeneratedValue
 	private long id;
 	
-	@ManyToOne(targetEntity=Users.class) 
-	private Users user;
+	@ManyToOne(targetEntity=User.class) 
+	private User user;
 	
-	@ManyToOne(targetEntity=Plants.class) 
-	private Plants plant;
+	@ManyToOne(targetEntity=Plant.class) 
+	private Plant plant;
 
-	public Favorites() {
+	public Favorite() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -30,19 +32,19 @@ public class Favorites {
 		this.id = id;
 	}
 
-	public Users getUser() {
+	public User getUser() {
 		return user;
 	}
 
-	public void setUser(Users user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 
-	public Plants getPlant() {
+	public Plant getPlant() {
 		return plant;
 	}
 
-	public void setPlant(Plants plant) {
+	public void setPlant(Plant plant) {
 		this.plant = plant;
 	}
 }

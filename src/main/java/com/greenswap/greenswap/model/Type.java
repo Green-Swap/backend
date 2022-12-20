@@ -4,27 +4,29 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import com.greenswap.greenswap.model.Plants;
+import com.greenswap.greenswap.model.Plant;
 
 
 @Entity
-@Table(name = "Categories")
-public class Categories {
+@Table(name = "Type")
+public class Type {
 	@Id
+	@GeneratedValue
 	private long id;
 	
 	@Column(name = "name", nullable = false)
 	private String name;
 	
-	@ManyToMany(mappedBy = "categories") 
-	private List<Plants> plant;
+	@ManyToMany(mappedBy = "types") 
+	private List<Plant> plant;
 
 
-	public Categories() {
+	public Type() {
 		super();
 	}
 
@@ -49,12 +51,12 @@ public class Categories {
 	}
 
 
-	public List<Plants> getPlant() {
+	public List<Plant> getPlant() {
 		return plant;
 	}
 
 
-	public void setPlant(List<Plants> plant) {
+	public void setPlant(List<Plant> plant) {
 		this.plant = plant;
 	}
 	

@@ -2,14 +2,16 @@ package com.greenswap.greenswap.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Notifications")
-public class Notifications {
+@Table(name = "Notification")
+public class Notification {
 	@Id
+	@GeneratedValue
 	private long id;
 	
 	@Column(name = "title", nullable = false)
@@ -24,10 +26,10 @@ public class Notifications {
 	@Column(name = "seen", nullable = false)
 	private boolean seen;
 	
-	@ManyToOne(targetEntity=Users.class)
-	private Users user;
+	@ManyToOne(targetEntity=User.class)
+	private User user;
 
-	public Notifications() {
+	public Notification() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -72,11 +74,11 @@ public class Notifications {
 		this.seen = seen;
 	}
 
-	public Users getUser() {
+	public User getUser() {
 		return user;
 	}
 
-	public void setUser(Users user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 }

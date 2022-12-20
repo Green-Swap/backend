@@ -1,26 +1,26 @@
 package com.greenswap.greenswap.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Pictures")
-public class Pictures {
+@Table(name = "Picture")
+public class Picture {
 	@Id
+	@GeneratedValue
 	private long id;
 	
 	@Column(name = "link", nullable = false)
 	private String link;
 	
-	@ManyToOne(targetEntity=Plants.class) 
-	private Plants plant;
+	@ManyToOne(targetEntity=Plant.class) 
+	private Plant plant;
 
-	public Pictures() {
+	public Picture() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -41,11 +41,11 @@ public class Pictures {
 		this.link = link;
 	}
 
-	public Plants getPlant() {
+	public Plant getPlant() {
 		return plant;
 	}
 
-	public void setPlant(Plants plant) {
+	public void setPlant(Plant plant) {
 		this.plant = plant;
 	}
 }
