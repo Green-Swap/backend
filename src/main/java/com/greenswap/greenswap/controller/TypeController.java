@@ -24,14 +24,12 @@ public class TypeController {
 	// Get all types
 	@GetMapping("/types")
 	public List<Type> getAllTypes() {
-		System.out.println("get");
 		return typeRepository.findAll();
 	}
 
 	// Create a type
 	@PostMapping("/type")
 	public Type createType(@Valid @RequestBody Type type) {
-		System.out.println("post");
 		return typeRepository.save(type);
 	}
 }
