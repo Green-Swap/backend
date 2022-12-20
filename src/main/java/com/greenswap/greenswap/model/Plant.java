@@ -11,8 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Plants")
-public class Plants {
+@Table(name = "Plant")
+public class Plant {
 	
 	@Id
 	private long id;
@@ -20,13 +20,13 @@ public class Plants {
 	@Column(name = "name", nullable = false)
 	private String name;
 	
-	@ManyToOne(targetEntity=Users.class)
-	private Users user;
+	@ManyToOne(targetEntity=User.class)
+	private User user;
 	
 	@ManyToMany
-	private List<Categories> categories;
+	private List<Type> types;
 
-	public Plants() {
+	public Plant() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -47,19 +47,20 @@ public class Plants {
 		this.name = name;
 	}
 
-	public Users getUser() {
+	public User getUser() {
 		return user;
 	}
 
-	public void setUser(Users user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 
-	public List<Categories> getCategories() {
-		return categories;
+	public List<Type> getTypes() {
+		return types;
 	}
 
-	public void setCategories(List<Categories> categories) {
-		this.categories = categories;
+	public void setTypes(List<Type> types) {
+		this.types = types;
 	}
+
 }

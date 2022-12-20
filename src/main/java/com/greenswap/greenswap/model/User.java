@@ -6,8 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Users")
-public class Users {
+@Table(name = "User")
+public class User {
 	@Id
 	private long id;
 
@@ -32,7 +32,7 @@ public class Users {
 	@Column(name = "password", nullable = false)
 	private String password;
 	
-	public Users() {
+	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
