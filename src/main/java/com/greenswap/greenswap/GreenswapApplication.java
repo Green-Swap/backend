@@ -1,7 +1,7 @@
 package com.greenswap.greenswap;
 
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
@@ -12,10 +12,8 @@ public class GreenswapApplication {
 	 * @param args command line arguments
 	 */
 	public static void main(String[] args) {
-		SpringApplication.run(GreenswapApplication.class, args)
-		//.registerShutdownHook(true)
-		//.run(args);
-		;
+		new SpringApplicationBuilder(GreenswapApplication.class)
+		.registerShutdownHook(true)
+		.run(args);
 	}
-
 }

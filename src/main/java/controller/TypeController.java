@@ -28,7 +28,7 @@ public class TypeController {
 		return typeRepository.findAll();
 	}
 
-	// Create an type
+	// Create a type
 	@PostMapping("/type")
 	public Type createType(@Valid @RequestBody Type article) {
 		return typeRepository.save(article);
