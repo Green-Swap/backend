@@ -60,4 +60,8 @@ public class Type {
 		this.plant = plant;
 	}
 	
+	public void addPlant(Plant plant) {
+		this.plant.add(plant);
+	}
+	
 }
