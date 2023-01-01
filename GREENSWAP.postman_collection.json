@@ -153,6 +153,36 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "UPDATE TYPE NAME BY ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "exterieur",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/{{base}}/type/1",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"{{base}}",
+								"type",
+								"1"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -203,6 +233,132 @@
 							"path": [
 								"{{base}}",
 								"plant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET PLANT BY ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}:{{port}}/{{base}}/plant/2",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"{{base}}",
+								"plant",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET PLANT BY NAME",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}:{{port}}/{{base}}/plant/name/tulip",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"{{base}}",
+								"plant",
+								"name",
+								"tulip"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE PLANT BY ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}:{{port}}/{{base}}/plant/2",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"{{base}}",
+								"plant",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE USER TO PLANT BY ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/{{base}}/plant/1/user/2",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"{{base}}",
+								"plant",
+								"1",
+								"user",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE PLANT NAME BY ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "pissenlit",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/{{base}}/plant/3",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"{{base}}",
+								"plant",
+								"3"
 							]
 						}
 					},
