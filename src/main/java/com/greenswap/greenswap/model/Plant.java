@@ -1,33 +1,32 @@
 package com.greenswap.greenswap.model;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import com.greenswap.greenswap.model.Type;
 
 @Entity
 @Table(name = "Plant")
 public class Plant {
-	
+
 	@Id
 	@GeneratedValue
 	private long id;
- 
+
 	@Column(name = "name", nullable = false)
 	private String name;
-	
-	@ManyToOne(targetEntity=User.class)
+
+	@ManyToOne(targetEntity = User.class)
 	private User user;
-	
-	@ManyToMany
-	private List<Type> types;
+
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+	@JoinTable(name = "plant_type", joinColumns = {
+			@JoinColumn(name = "plantId", referencedColumnName = "id", nullable = false, updatable = false) }, inverseJoinColumns = {
+					@JoinColumn(name = "typeId", referencedColumnName = "id", nullable = false, updatable = false) })
+	private Set<Type> types = new HashSet<>();
 
 	public Plant() {
 		super();
@@ -58,12 +57,11 @@ public class Plant {
 		this.user = user;
 	}
 
-	public List<Type> getTypes() {
+	public Set<Type> getTypes() {
 		return types;
 	}
 
-	public void setTypes(List<Type> types) {
+	public void setTypes(Set<Type> types) {
 		this.types = types;
 	}
-
 }

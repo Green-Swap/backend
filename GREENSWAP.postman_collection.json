@@ -129,7 +129,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\":1,\r\n    \"name\":\"test\",\r\n    \"user\":null\r\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -137,7 +137,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://{{host}}:{{port}}/{{base}}/type/2/plant",
+							"raw": "http://{{host}}:{{port}}/{{base}}/type/1/plant/2",
 							"protocol": "http",
 							"host": [
 								"{{host}}"
@@ -146,7 +146,62 @@
 							"path": [
 								"{{base}}",
 								"type",
-								"2",
+								"1",
+								"plant",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PLANT",
+			"item": [
+				{
+					"name": "GET ALL PLANTS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}:{{port}}/{{base}}/plants",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"{{base}}",
+								"plants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE PLANT",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"tulip\",\r\n    \"user\":null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/{{base}}/plant",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"{{base}}",
 								"plant"
 							]
 						}
