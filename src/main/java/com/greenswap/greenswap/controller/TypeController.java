@@ -17,10 +17,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.greenswap.greenswap.exception.ResourceNotFoundException;
 import com.greenswap.greenswap.model.Plant;
 import com.greenswap.greenswap.model.Type;
-import com.greenswap.greenswap.model.User;
 import com.greenswap.greenswap.repository.PlantRepository;
 import com.greenswap.greenswap.repository.TypeRepository;
 
