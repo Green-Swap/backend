@@ -1,5 +1,7 @@
 package com.greenswap.greenswap.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,6 +35,21 @@ public class User {
 	
 	@Column(name = "password", nullable = false)
 	private String password;
+	
+	@Column(name = "code")
+	private String code;
+	
+	@Column(name = "codeExpiration")
+	private Date codeExpiration;
+	
+	@Column(name = "lastConnexion")
+	private Date lastConnexion;
+	
+	@Column(name = "unsuccessfullAttempt", nullable = false)
+	private int unsuccessfullAttempt;
+	
+	@Column(name = "currentToken", nullable = false)
+	private String currentToken;
 	
 	public User() {
 		super();
@@ -102,4 +119,46 @@ public class User {
 	public void setAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;
 	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public Date getCodeExpiration() {
+		return codeExpiration;
+	}
+
+	public void setCodeExpiration(Date codeExpiration) {
+		this.codeExpiration = codeExpiration;
+	}
+
+	public Date getLastConnexion() {
+		return lastConnexion;
+	}
+
+	public void setLastConnexion(Date lastConnexion) {
+		this.lastConnexion = lastConnexion;
+	}
+
+	public int getUnsuccessfullAttempt() {
+		return unsuccessfullAttempt;
+	}
+
+	public void setUnsuccessfullAttempt(int unsuccessfullAttempt) {
+		this.unsuccessfullAttempt = unsuccessfullAttempt;
+	}
+
+	public String getCurrentToken() {
+		return currentToken;
+	}
+
+	public void setCurrentToken(String currentToken) {
+		this.currentToken = currentToken;
+	}
+	
+	
 }
