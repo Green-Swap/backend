@@ -488,6 +488,58 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "UPDATE USER FIRSTNAME BY ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "test"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/{{base}}/user/firstname/3",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"{{base}}",
+								"user",
+								"firstname",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE USER LASTNAME BY ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "test"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/{{base}}/user/lastname/3",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"{{base}}",
+								"user",
+								"lastname",
+								"3"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}
