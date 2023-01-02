@@ -81,26 +81,33 @@ public class UserController {
 	@PutMapping("/user/firstname/{id}")
 	public ResponseEntity<?> udpateUserFirstname(@PathVariable(value = "id") Long userId,
 			@Valid @RequestBody String firstname) throws Exception {
-		User user = userRepository.findById(userId).get();
-		if (firstname != null) {
-			user.setFirstname(firstname);
+		try {
+			User user = userRepository.findById(userId).get();
+			if (firstname != null) {
+				user.setFirstname(firstname);
+			}
+			User _user = userRepository.save(user);
+			return new ResponseEntity<>(_user, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>("User not found.", HttpStatus.NOT_FOUND);
 		}
-
-		User _user = userRepository.save(user);
-		return new ResponseEntity<>(_user, HttpStatus.OK);
 	}
 
 	// Update user lastname
 	@PutMapping("/user/lastname/{id}")
 	public ResponseEntity<?> udpateUserLastame(@PathVariable(value = "id") Long userId,
 			@Valid @RequestBody String lastname) throws Exception {
-		User user = userRepository.findById(userId).get();
-		if (lastname != null) {
-			user.setLastname(lastname);
-		}
+		try {
+			User user = userRepository.findById(userId).get();
+			if (lastname != null) {
+				user.setLastname(lastname);
+			}
 
-		User _user = userRepository.save(user);
-		return new ResponseEntity<>(_user, HttpStatus.OK);
+			User _user = userRepository.save(user);
+			return new ResponseEntity<>(_user, HttpStatus.OK);
+		}catch (Exception e) {
+			return new ResponseEntity<>("User not found.", HttpStatus.NOT_FOUND);
+		}
 	}
 
 }
