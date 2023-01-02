@@ -35,8 +35,24 @@ public class UserController {
 
 	// Create a user
 	@PostMapping("/user")
-	public User createUser(@Valid @RequestBody User user) {
-		return userRepository.save(user);
+	public ResponseEntity<?> createUser(@Valid @RequestBody User user) {
+		if (user != null) {
+			try {
+				userRepository.findUserByEmail(user.getEmail()).get();
+				return new ResponseEntity<>("Already exist with this email.", HttpStatus.IM_USED);
+			} catch (Exception e) {
+				user.setAdmin(false);
+				user.setVerified(false);
+				user.setCode(null);
+				user.setCodeExpiration(null);
+				user.setLastConnexion(null);
+				user.setUnsuccessfullAttempt(0);
+				userRepository.save(user);
+				return new ResponseEntity<>(user, HttpStatus.OK);
+			}
+		} else {
+			return new ResponseEntity<>("Wrong parameters.", HttpStatus.FORBIDDEN);
+		}
 	}
 
 	// Get a Single user by id
@@ -48,8 +64,9 @@ public class UserController {
 
 	// Get a Single user by name
 	@GetMapping("/user/{firstname}/{lastname}")
-	public ResponseEntity<?> getUserByName(@PathVariable(value = "firstname") String firstname, @PathVariable(value = "lastname") String lastname) {
-		List<User> user = userRepository.getUsersByNames(firstname,lastname);
+	public ResponseEntity<?> getUserByName(@PathVariable(value = "firstname") String firstname,
+			@PathVariable(value = "lastname") String lastname) {
+		List<User> user = userRepository.getUsersByNames(firstname, lastname);
 		return new ResponseEntity<>(user, HttpStatus.FOUND);
 	}
 
@@ -61,9 +78,9 @@ public class UserController {
 	}
 
 	// Update user firstname
-	@PutMapping("/user/{id}")
-	public ResponseEntity<?> udpateUserFirstname (@PathVariable(value = "id") Long userId, @Valid @RequestBody String firstname)
-			throws Exception {
+	@PutMapping("/user/firstname/{id}")
+	public ResponseEntity<?> udpateUserFirstname(@PathVariable(value = "id") Long userId,
+			@Valid @RequestBody String firstname) throws Exception {
 		User user = userRepository.findById(userId).get();
 		if (firstname != null) {
 			user.setFirstname(firstname);
@@ -72,19 +89,18 @@ public class UserController {
 		User _user = userRepository.save(user);
 		return new ResponseEntity<>(_user, HttpStatus.OK);
 	}
-	
+
 	// Update user lastname
-	@PutMapping("/user/{id}")
-	public ResponseEntity<?> udpateUserLastame(@PathVariable(value = "id") Long userId, @Valid @RequestBody String lastname)
-			throws Exception {
+	@PutMapping("/user/lastname/{id}")
+	public ResponseEntity<?> udpateUserLastame(@PathVariable(value = "id") Long userId,
+			@Valid @RequestBody String lastname) throws Exception {
 		User user = userRepository.findById(userId).get();
 		if (lastname != null) {
-			user.setLastName(lastname);
+			user.setLastname(lastname);
 		}
 
 		User _user = userRepository.save(user);
 		return new ResponseEntity<>(_user, HttpStatus.OK);
 	}
-
 
 }

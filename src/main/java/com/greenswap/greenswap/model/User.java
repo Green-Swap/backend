@@ -15,14 +15,14 @@ public class User {
 	@GeneratedValue
 	private long id;
 
-	@Column(name = "lastName", nullable = false)
-	private String lastName;
+	@Column(name = "lastname", nullable = false)
+	private String lastname;
 	
 	@Column(name = "firstname", nullable = false)
 	private String firstname;
 	
 	@Column(name = "city", nullable = false)
-	private String ville;
+	private String city;
 	
 	@Column(name = "email", nullable = false)
 	private String email;
@@ -45,10 +45,10 @@ public class User {
 	@Column(name = "lastConnexion")
 	private Date lastConnexion;
 	
-	@Column(name = "unsuccessfullAttempt", nullable = false)
+	@Column(name = "unsuccessfullAttempt")
 	private int unsuccessfullAttempt;
 	
-	@Column(name = "currentToken", nullable = false)
+	@Column(name = "currentToken")
 	private String currentToken;
 	
 	public User() {
@@ -64,12 +64,12 @@ public class User {
 		this.id = id;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public String getLastname() {
+		return lastname;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setLastname(String lastName) {
+		this.lastname = lastName;
 	}
 
 	public String getFirstname() {
@@ -80,12 +80,12 @@ public class User {
 		this.firstname = firstname;
 	}
 
-	public String getVille() {
-		return ville;
+	public String getCity() {
+		return city;
 	}
 
-	public void setVille(String ville) {
-		this.ville = ville;
+	public void setCity(String ville) {
+		this.city = ville;
 	}
 
 	public String getEmail() {

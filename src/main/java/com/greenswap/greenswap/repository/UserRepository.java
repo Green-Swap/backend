@@ -11,21 +11,21 @@ import com.greenswap.greenswap.model.User;
 
 
 public interface UserRepository extends JpaRepository<User, Long> {
-	@Query(value = "select * from user where user.firstname=firstname and user.lastName=lastName", nativeQuery=true)
-	List<User> getUsersByNames(@Param("firstname") String firstname,@Param("lastName") String lastName);
+	@Query(value = "select * from user where user.firstname=:firstname and user.lastname=:lastname", nativeQuery=true)
+	List<User> getUsersByNames(@Param("firstname") String firstname,@Param("lastname") String lastname);
 	
 	Optional<User> findUserByEmail(String email);
 	
-	@Query(value = "select * from user where user.city=city", nativeQuery=true)
+	@Query(value = "select * from user where user.city=:city", nativeQuery=true)
 	List<User>  getUsersByCity(@Param("city") String city);
 	
-	@Query(value = "select * from user where  user.email=email and user.password=password", nativeQuery=true)
+	@Query(value = "select * from user where  user.email=:email and user.password=:password", nativeQuery=true)
 	Optional<User> getUserByConnexion(@Param("email") String email, @Param("password") String password);
 	
-	@Query(value = "select * from user where  user.email=email and user.verified=verified", nativeQuery=true)
+	@Query(value = "select * from user where  user.email=:email and user.verified=:verified", nativeQuery=true)
 	Optional<User> getUserVerified(@Param("email") String email, @Param("verified") String verified);
 	
-	@Query(value = "select * from user where  user.email=email and user.isAdmin=true", nativeQuery=true)
+	@Query(value = "select * from user where  user.email=:email and user.isAdmin=true", nativeQuery=true)
 	Optional<User> getAdmin(@Param("email") String email);
 	
 	@Query(value = "select * from user where  user.isAdmin=true", nativeQuery=true)
